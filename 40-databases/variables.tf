@@ -23,3 +23,14 @@ variable "sg_names" {
         "openvpn"
          ]
 }
+
+variable "domain_name" {
+    default = "spdevhops.shop"
+  
+}
+
+variable "zone_id" {
+    default = "Z015504635YTPJNLLKES7"
+  
+}
+
