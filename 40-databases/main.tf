@@ -3,18 +3,14 @@ resource "aws_instance" "mongodb" {
     instance_type = "t3.micro"
     vpc_security_group_ids = [local.mongodb_sg_id]
     subnet_id = local.database_subnet_id
+    
     tags = merge (
-        local.common_tags,
-    
-    {
-        Name = "${local.common_name_suffix}-mongodb"
-        
-    }
-
+        local.common_tags, 
+        {
+           Name = "${local.common_name_suffix}-mongodb"
+        }
     )
-
-    
-}
+ }
 
 resource "terraform_data" "mongodb" {
     triggers_replace = [
@@ -42,7 +38,7 @@ resource "terraform_data" "mongodb" {
   }
 }
 
-resource "aws_instance" "redis" {
+/* resource "aws_instance" "redis" {
     ami = local.ami_id
     instance_type = "t3.micro"
     vpc_security_group_ids = [local.redis_sg_id]
@@ -215,4 +211,4 @@ resource "aws_route53_record" "rabbitmq" {
     ttl     = 1
     records = [aws_instance.rabbitmq.private_ip]
     allow_overwrite = true  
-}
+} */

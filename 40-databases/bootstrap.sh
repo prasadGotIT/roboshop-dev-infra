@@ -8,8 +8,9 @@ REPO_URL=https://github.com/prasadGotIT/ansible-roboshop-roles-tf.git
 REPO_DIR=/opt/roboshop/ansible
 ANSIBLE_DIR=ansible-roboshop-roles-tf
 
+
 mkdir -p $REPO_DIR
-mkdir -p /var/log/roboshop/
+mkdir -p /var/log/
 touch ansible.log
 
 cd $REPO_DIR
