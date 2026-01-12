@@ -175,7 +175,7 @@ resource "terraform_data" "mysql" {
         "sudo sh /tmp/bootstrap.sh mysql dev"
         ]  
   }
-}
+} */
 
 resource "aws_route53_record" "mongodb" {
     zone_id = var.zone_id
@@ -186,7 +186,7 @@ resource "aws_route53_record" "mongodb" {
     allow_overwrite = true  
 }
 
-resource "aws_route53_record" "redis" {
+/* resource "aws_route53_record" "redis" {
     zone_id = var.zone_id
     name    = "redis-${var.environment}.{var.domain_name}"
     type    = "A"
@@ -211,4 +211,4 @@ resource "aws_route53_record" "rabbitmq" {
     ttl     = 1
     records = [aws_instance.rabbitmq.private_ip]
     allow_overwrite = true  
-} */
+}  */
