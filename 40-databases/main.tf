@@ -39,7 +39,7 @@ resource "terraform_data" "mongodb" {
   }
 }
 
-resource "aws_instance" "redis" {
+/* resource "aws_instance" "redis" {
     ami = local.ami_id
     instance_type = "t3.micro"
     vpc_security_group_ids = [local.redis_sg_id]
@@ -200,4 +200,4 @@ resource "aws_route53_record" "rabbitmq" {
   ttl     = 1
   records = [aws_instance.rabbitmq.private_ip]
   allow_overwrite = true
-}
+} */
