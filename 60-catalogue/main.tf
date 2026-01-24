@@ -90,6 +90,8 @@ resource "aws_lb_target_group" "catalogue" {
 
     vpc_security_group_ids = [local.catalogue_sg_id]
     
+    # when we run terraform apply again, a new version will be created with new AMI
+    update_default_version = true
     # tags attached to the instance
     tag_specifications {
       resource_type = "instance"
@@ -119,7 +121,13 @@ resource "aws_lb_target_group" "catalogue" {
     }
      vpc_zone_identifier = local.private_subnet_id
      target_group_arns = [aws_lb_target_group.catalogue.arn]
-
+     instance_refresh {
+       strategy = "Rolling"
+       preferences {
+         min_healthy_percentage = 50
+       }
+       triggers = ["launch_template"]
+     }
      dynamic "tag" {
         for_each = merge(
             local.common_tags,
