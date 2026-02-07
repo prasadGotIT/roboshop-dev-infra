@@ -49,6 +49,6 @@ data "aws_ssm_parameter" "payment_sg_id"{
 }
 
 data "aws_ssm_parameter" "frontend_sg_id"{
-    name = "/${var.project_name}/${var.environment}/fronend_sg_id"
+    name = "/${var.project_name}/${var.environment}/frontend_sg_id"
 }
 
