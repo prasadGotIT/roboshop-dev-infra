@@ -165,13 +165,12 @@ resource "aws_security_group_rule" "cart_backend_alb" {
 }
 
 resource "aws_security_group_rule" "shipping_bastion" {
-  type = "ingress"
-  security_group_id = local.bastion_sg_id
+  type              = "ingress"
+  security_group_id = local.shipping_sg_id
   source_security_group_id = local.bastion_sg_id
-  from_port = 22
-  protocol = "tcp"
-  to_port = 22
-  
+  from_port         = 22
+  protocol          = "tcp"
+  to_port           = 22
 }
 
 
@@ -255,13 +254,12 @@ resource "aws_security_group_rule" "frontend_frontend_alb" {
 }
 
 resource "aws_security_group_rule" "frontend_alb_public" {
-  type = "ingress"
+  type              = "ingress"
   security_group_id = local.frontend_alb_sg_id
   cidr_blocks = ["0.0.0.0/0"]
-  from_port = 443
-  protocol = "tcp"
-  to_port = 443
-  
+  from_port         = 443
+  protocol          = "tcp"
+  to_port           = 443
 }
 
 resource "aws_security_group_rule" "bastion_laptop" {
