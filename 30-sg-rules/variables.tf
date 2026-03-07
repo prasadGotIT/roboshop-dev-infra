@@ -5,3 +5,7 @@ variable "project_name" {
 variable "environment" {
   default = "dev"
 }
+
+variable "components" {
+  default = {}
+}
